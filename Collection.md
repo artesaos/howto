@@ -444,8 +444,7 @@ array(4) { [1]=> string(6) "nome 1"
 ```
 ___
 
-_`map`- _
-
+_`map`- executar um mapa sobre cada um dos itens._
 ```PHP
 $collect = collect(
             [
