@@ -2,6 +2,10 @@
 
 ## Eloquent
 
+- Collection
+
+    [Collection](Collection.md) 
+ 
 - Relacionamentos 
 
     [1 para 1](Eloquent_OneToOne.md)
