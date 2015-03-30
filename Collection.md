@@ -907,7 +907,7 @@ string(49) "{"fruta1":"roma","fruta2":"pera","fruta3":"roma"}"
 ```
 ___
 
-_`getIterator()`- retornar um `ArrayIterator` _
+_`getIterator()`- retornar um `ArrayIterator`_
 ```PHP
 $collect  = collect([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
 $iterator = $collect->getIterator();
