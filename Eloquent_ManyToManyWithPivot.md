@@ -3,7 +3,7 @@
 Relacionamentos Muitos para Muitos com mais campos na tabela segue a relação [Muitos para Muitos](https://github.com/artesaos/howto/blob/master/Eloquent_ManyToMany.md) com adição de um campo na tabela Pivot de nome `status`, como segue figura logo abaixo:
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-withpivot.png)
 
-Para refletir isso no Laravel adicione após o belongsToMany o `->withPivot(['status'])` como segue no código abaixo:
+Para refletir isso no Laravel adicione após o `belongsToMany` o `->withPivot(['status'])` como código abaixo:
 
 __Authors__
 
@@ -69,29 +69,26 @@ class Books extends Model
 
 ###Inserir
 ```PHP
-//Cria autor e cria o livro e anexa a esse autor pelo relacionamento;
-$a = Authors::create(['name'=>'Dumond de Andrad']);
-$a->books()->create(['title' => 'O Laravel']);
+$book   = Books::find(2);
+$author = Authors::find(1)->books()->attach($book, ['status' => 1]);
 
-ou
-//Cria autor, e criando dois livros
-$a = Authors::create(['name'=>'Dumond de Andrad']);
-$b1 = Books::create(['title'=>'O Conto']);
-$b2 = Books::create(['title'=>'O Sasi']);
+//ou
 
-//anexando ao autor os dois livros
-$a->books()->attach($b1);
-$a->books()->attach($b2);
-
-ou // anexando pelo id
-$a->books()->attach($b1->id);
-$a->books()->attach($b2->id);
-
+$book   = Books::find(2);
+$author = Authors::find(1)->books()->attach($book->id, ['status' => 1]);
         
 ```
 ###Alterar
+```PHP
+// Nesse caso a parte de alterar os dados da tabela Pivot seus campos adicionais seriam assim:
+$author = Authors::find(1)->books()->updateExistingPivot(2, ['status' => 0]);
 
-_Alterar tabela muitos para muitos não é usual, só altera mesmo as tabelas de `Authors` e `Books`_
+//ou
+
+$book = Books::find(2);
+$author = Authors::find(1)->books()->updateExistingPivot($book->id, ['status' => 0]);
+
+```
 
 ###Excluir
 ```PHP
@@ -101,7 +98,9 @@ $a = Authors::find(2);
 $b = Books::find(2);
 
 $a->books()->detach($b);
+
 //ou
+
 $a->books()->detach($b->id);
 ```
 
@@ -115,15 +114,23 @@ var_dump($a->books);
 //saída
 [
     {
-        "id":1,
-        "title":"O Exemplo 1",
-        "pivot":{"authorid":2,"bookid":1}
-    },
-    {   
-        "id":3,
-        "title":"O Exemplo 2",
-        "pivot":{"authorid":2,"bookid":3}
+        "id": 1,
+        "title": "O Laravel",
+        "pivot": {
+        "authorid": 1,
+        "bookid": 1,
+        "status": 1
     }
+},
+    {
+        "id": 2,
+        "title": "MVC",
+        "pivot": {
+        "authorid": 1,
+        "bookid": 2,
+        "status": 0
+    }
+}
 ]
 ```
 
