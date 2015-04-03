@@ -139,6 +139,8 @@ var_dump($a->books);
 ]
 ```
 
+Perceba que nessa listagem todos os campos da tabela Pivot são visiveis para que possa ser recuperado.
+
 ##Referências: 
 
 - [Eloquent Many To Many](http://laravel.com/docs/5.0/eloquent#many-to-many)
