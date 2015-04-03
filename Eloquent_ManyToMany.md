@@ -1,12 +1,10 @@
 # Eloquent
 
-## Relacionamentos 1 para Muitos
+## Relacionamentos Muitos para Muitos
 
 A relação de `N para M` que existe entre as tabelas de nomes `authors` e `books`, conforme demostrado figura abaixo:
 
 ![1 para 1](https://github.com/diasfulvio/how-to-laravel/blob/gh-pages/images/N-M.png)
-
-Ou seja, 1 pessoa possui nenhum ou vários telefones e um telefone é de uma pessoa.
 
 Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
 
