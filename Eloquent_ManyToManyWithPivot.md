@@ -1,6 +1,6 @@
 # Eloquent
 
-Relacionamentos Muitos para Muitos com mais campos na tabela segue a relação [Muitos para Muitos](https://github.com/artesaos/howto/blob/master/Eloquent_ManyToMany.md) com adição de um campo na tabela Pivot de nome `status`, como segue figura logo abaixo:
+Relacionamentos Muitos para Muitos com mais campos na tabela segue a relação [Muitos para Muitos](https://github.com/artesaos/howto/blob/master/Eloquent_ManyToMany.md) com adição de um campo na tabela Pivot de nome `status` (a quantidade de campos é ilimitado, só foi colocado um como exmplo), como segue figura logo abaixo:
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-withpivot.png)
 
 Para refletir isso no Laravel adicione após o `belongsToMany` o `->withPivot(['status'])` como código abaixo:
