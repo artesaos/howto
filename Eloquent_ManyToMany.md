@@ -4,7 +4,7 @@
 
 A relação de `N para M` que existe entre as tabelas de nomes `authors` e `books`, conforme demostrado figura abaixo:
 
-![1 para 1](https://github.com/diasfulvio/howto/images/N-M.png)
+![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M.png)
 
 Ou seja, 1 pessoa possui nenhum ou vários telefones e um telefone é de uma pessoa.
 
