@@ -68,6 +68,8 @@ class Books extends Model
 ##Codificando
 
 ###Inserir
+Inserir os dados da relação Pivot mais os campos adicionais que nesse caso exemplo é `status`:
+
 ```PHP
 $book   = Books::find(2);
 $author = Authors::find(1)->books()->attach($book, ['status' => 1]);
@@ -79,8 +81,9 @@ $author = Authors::find(1)->books()->attach($book->id, ['status' => 1]);
         
 ```
 ###Alterar
+Nesse caso a parte de alterar os dados da tabela Pivot seus campos adicionais seriam assim:
+
 ```PHP
-// Nesse caso a parte de alterar os dados da tabela Pivot seus campos adicionais seriam assim:
 $author = Authors::find(1)->books()->updateExistingPivot(2, ['status' => 0]);
 
 //ou
@@ -91,9 +94,8 @@ $author = Authors::find(1)->books()->updateExistingPivot($book->id, ['status' =>
 ```
 
 ###Excluir
+Excluindo o item da relação, ou seja o Author e o Livro continuarão, somente o item da tabela Pivot será excluido:
 ```PHP
-//excluindo o item da relação, ou seja o Author e o Livro continuarão, 
-//somente o item da tabela centra será excluido
 $a = Authors::find(2);
 $b = Books::find(2);
 
@@ -105,9 +107,9 @@ $a->books()->detach($b->id);
 ```
 
 ###Listar
-```PHP
+Listar os livros do autor de `id = 2`:
 
-//Listar os livros do autor de id = 2
+```PHP
 $a = Authors::find(2);
 var_dump($a->books);
 
@@ -117,26 +119,22 @@ var_dump($a->books);
         "id": 1,
         "title": "O Laravel",
         "pivot": {
-        "authorid": 1,
-        "bookid": 1,
-        "status": 1
-    }
-},
+            "authorid": 1,
+            "bookid": 1,
+            "status": 1
+        }
+    },
     {
         "id": 2,
         "title": "MVC",
         "pivot": {
-        "authorid": 1,
-        "bookid": 2,
-        "status": 0
+            "authorid": 1,
+            "bookid": 2,
+            "status": 0
+        }
     }
-}
 ]
 ```
-
-##Observações:
-
-Eu fiz os exemplos sempre do `Authors` para `Books`, mas, a volta funciona da mesma forma, ou seja, de `Books` para `Authors`
 
 ##Referências: 
 
