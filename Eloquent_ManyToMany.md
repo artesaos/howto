@@ -6,8 +6,6 @@ A relação de `N para M` que existe entre as tabelas de nomes `authors` e `book
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M.png)
 
-Ou seja, 1 pessoa possui nenhum ou vários telefones e um telefone é de uma pessoa.
-
 Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
 
 __Authors__
