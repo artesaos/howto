@@ -1,12 +1,9 @@
 # Eloquent
 
-## Relacionamentos Muitos para Muitos
+## Relacionamentos Muitos para Muitos com mais campos na tabela segue a relação ![Muitos para Muitos](https://github.com/artesaos/howto/blob/master/Eloquent_ManyToMany.md) com adição de um campo na tabela Pivot de nome `status`, como segue figura logo abaixo:
+![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-withpivot.png)
 
-A relação de `N para M` que existe entre as tabelas de nomes `authors` e `books`, conforme demostrado figura abaixo:
-
-![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M.png)
-
-Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
+Para refletir isso no Laravel adicione após o belongsToMany o `->withPivot(['status'])` como segue no código abaixo:
 
 __Authors__
 
@@ -33,7 +30,7 @@ class Authors extends Model
     public function books()
     {
         //    $this->belongsToMany('relacao', 'nome da tabela pivot', 'key ref. authors em pivot', 'key ref. books em pivot')
-        return $this->belongsToMany('App\Books','booksauthors', 'authorid', 'bookid');
+        return $this->belongsToMany('App\Books','booksauthors', 'authorid', 'bookid')->withPivot(['status']);
     }
 }
 ```
@@ -63,7 +60,7 @@ class Books extends Model
     public function authors()
     {
         //    $this->belongsToMany('relacao', 'nome da tabela pivot', 'key ref. books em pivot', 'key ref. author em pivot')
-        return $this->belongsToMany('App\Authors', 'booksauthors', 'bookid', 'authorid');
+        return $this->belongsToMany('App\Authors', 'booksauthors', 'bookid', 'authorid')->withPivot(['status']);
     }
 }
 ```
