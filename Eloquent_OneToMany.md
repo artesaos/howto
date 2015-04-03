@@ -4,7 +4,7 @@
 
 A relação de `1 para N` que existe entre as tabelas de nomes `peoples` e `phones`, conforme demostrado figura abaixo:
 
-![1 para 1](https://github.com/diasfulvio/how-to-laravel/blob/gh-pages/images/1-N.png)
+![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/1-N.png)
 
 Ou seja, 1 pessoa possui nenhum ou vários telefones e um telefone é de uma pessoa.
 
