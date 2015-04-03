@@ -4,7 +4,7 @@
 
 A relação de `1 para 1` que existe entre as tabelas de nomes `peoples` e `address`, conforme demostrado figura abaixo:
 
-![1 para 1](https://github.com/diasfulvio/how-to-laravel/blob/gh-pages/images/1-1.png)
+![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/1-1.png)
 
 Ou seja, 1 pessoa possui um endereço e esse endereço pertence a uma pessoa. Esse relacionamento pode ser questionável mediante ao fator de que um endereço pode morar mais de uma pessoa, mas, por motivos ilustrativos vamos dizer que isso não aconteça.
 
