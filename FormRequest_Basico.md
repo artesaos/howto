@@ -41,7 +41,7 @@ class ContatoController extends Controller {
 
 ```
 
-Feito isso, vamos criar também a view que conterá o formulário html do contato:
+Feito isso, vamos criar também a view que conterá o formulário html do contato, arquivo `resources/views/contato/index.blade.php`:
 ```html
 @extends('app')
 
