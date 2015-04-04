@@ -86,27 +86,24 @@ $a->books()->detach($b->id);
 Listar os livros do autor de `id = 2`:
 
 ```PHP
-$a = Authors::find(2);
-var_dump($a->books);
+BooksAuthors::with(['book','author'])
+    ->where('bookid','=',1)
+    ->where('authorid','=',1)
+    ->get()
 
 //saída
 [
     {
+    "bookid": 1,
+    "authorid": 1,
+    "Status": 1,
+    "book": {
         "id": 1,
-        "title": "O Laravel",
-        "pivot": {
-            "authorid": 1,
-            "bookid": 1,
-            "status": 1
-        }
-    },
-    {
-        "id": 2,
-        "title": "MVC",
-        "pivot": {
-            "authorid": 1,
-            "bookid": 2,
-            "status": 0
+        "title": "O Laravel"
+        },
+    "author": {
+        "id": 1,
+        "name": "Dumond de Andrad"
         }
     }
 ]
