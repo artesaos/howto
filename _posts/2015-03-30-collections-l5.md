@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Collections L5
-categories: Helpers L5
+categories: Helpers Laravel5
 ---
 
 A Classe `Illuminate\Support\Collection` é um wrapper muito conveniente quando de trabalha com uma lista de dados (array).  

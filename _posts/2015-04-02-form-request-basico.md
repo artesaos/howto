@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Utilizando os Form Requests
-categories: Validação
+categories: validacao
 ---
 
-Nesta versão, <code>~5.0</code>, o laravel veio com um recurso nativo para validação de dados recebidos via http (via formulário, ajax, etc) nesse artigo vou tratar as formas mais comuns de utilizá-los.
+Nesta versão, `~5.0`, o laravel veio com um recurso nativo para validação de dados recebidos via http (via formulário, ajax, etc) nesse artigo vou tratar as formas mais comuns de utilizá-los.
 
 # Form Request
 
@@ -191,7 +191,8 @@ Feito isso, qualquer tentativa de enviar os dados de forma errada para o laravel
     </ul>
 @endunless
 ``` 
-Basicamente, o que essas linhas fazem é percorrer nossa bolsa de mensagens de erros (MessageBag) e mostrar o primeiro erro ($error[0]) de cada campo.
+
+Basicamente, o que essas linhas fazem é percorrer nossa bolsa de mensagens de erros (MessageBag) e mostrar o primeiro erro (`$error[0]`) de cada campo.
 
 Agora, se tentarmos inserir qualquer informação que não seja válida, o nosso ContatoRequest automaticamente vai redirecionar o usuário de volta para esse formulário e essas mensagens serão exibidas:
 
