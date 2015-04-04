@@ -2,6 +2,7 @@
 
 ## Relacionamentos Muitos para Muitos com campos adicionais na tabela `Pivot` expondo a classe Model
 
+
 Nesse caso especifico, aonde existem além das chaves de relacionamentos, campos adicionais existe um forma criando um classe normal que herda da base Model tendo configurações diferenciadas para trabalhar com esse tipo de tabela. 
 
 Segue a mesma tabela abaixo
@@ -44,23 +45,16 @@ Também foi colocado dois métodos que significam os métodos do relacionamento 
 ##Codificando
 
 ###Inserir
-Inserir os dados da relação Pivot mais os campos adicionais que nesse caso exemplo é `status`:
-
+Inserir de forma mais transparente:
 ```PHP
-$book   = Books::find(2);
-$author = Authors::find(1)->books()->attach($book, ['status' => 1]);
-
-//ou
-
-$book   = Books::find(2);
-$author = Authors::find(1)->books()->attach($book->id, ['status' => 1]);
+$booksAutors = BooksAuthors::firstOrCreate(['bookid' => 2, 'authorid'=> 2, 'status' =>1]);
         
 ```
 ###Alterar
 Nesse caso a parte de alterar os dados da tabela Pivot seus campos adicionais seriam assim:
 
 ```PHP
-$author = Authors::find(1)->books()->updateExistingPivot(2, ['status' => 0]);
+$booksAutors = BooksAuthors::where('bookid', 2)->where('authorid', 2)->update(['status' => 0]);
 
 //ou
 
