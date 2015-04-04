@@ -186,6 +186,44 @@ Agora, se tentarmos inserir qualquer informação que não seja válida, o nosso
 
 ![Form com erros.](http://i.imgur.com/mdEktdc.png) 
 
+## Ajax
+Sem nenhum ajuste no formulário, ele poderia ser preenchido via ajax (<a href="http://blog.vluzrmos.com.br/laravel-5-ajax-token-mismatch-exception/" title="Laravel 5 – Ajax TokenMismatchException" target="_blank">Veja como configurar o token para requisições Ajax</a>), exemplo usando jQuery:
+
+```javascript
+$.ajax("contato", {
+ 
+	type:"POST", 
+
+	dataType:"json",
+	
+	data: {
+	  name:"John",
+	  email:"EmailErrado",
+	  message:"Mensagem"
+	},
+
+	success:function(data){
+		console.log(data);
+	}
+
+	error:function(data){
+		console.log(error);
+	}
+});
+
+//Omitindo o _token do formulário, veja como configurá-lo em http://blog.vluzrmos.com.br/laravel-5-ajax-token-mismatch-exception/
+```
+
+Os dados retornados pelo Laravel em caso de erros serão um objeto <b>JSON</b> que pode ser facilmente tratado:
+
+```javascript
+{
+    "name":["The name must be at least 3 characters."],
+    "email":["The email must be a valid email address."],
+    "message":["The message must be at least 30 characters."]
+}
+``` 
+
 # Conclusão
 
 Esse foi o tutorial base para aprendizado das Form Requests, voce pode ler mais informações em:
