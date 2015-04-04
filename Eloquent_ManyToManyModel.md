@@ -54,30 +54,26 @@ $booksAutors = BooksAuthors::firstOrCreate(['bookid' => 2, 'authorid'=> 2, 'stat
 Nesse caso a parte de alterar os dados da tabela Pivot seus campos adicionais seriam assim:
 
 ```PHP
-$booksAutors = BooksAuthors::where('bookid', 2)->where('authorid', 2)->update(['status' => 0]);
+$booksAutors = BooksAuthors::where('bookid', 2)
+    ->where('authorid', 2)
+    ->update(['status' => 0]);
 
 //ou
 
-$book = Books::find(2);
-$author = Authors::find(1)->books()->updateExistingPivot($book->id, ['status' => 0]);
+ $booksAutors = BooksAuthors::where(function($query){
+            $query->where('bookid',2);
+            $query->where('authorid',2);
+        })->update(['status' => 1]);
 
 ```
 
 ###Excluir
 Excluindo o item da relação, ou seja o Author e o Livro continuarão, somente o item da tabela Pivot será excluido:
 ```PHP
-$a = Authors::find(2);
-$b = Books::find(2);
 
-$a->books()->detach($b);
-
-//ou
-
-$a->books()->detach($b->id);
 ```
 
 ###Listar
-Listar os livros do autor de `id = 2`:
 
 ```PHP
 BooksAuthors::with(['book','author'])
