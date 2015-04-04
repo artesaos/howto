@@ -1,16 +1,20 @@
-# Eloquent
-
-## Relacionamentos Muitos para Muitos
+---
+layout: post
+title: Eloquent ManyToMany - Relacionamentos Muitos para Muitos
+categories: Eloquent
+author: @diasfulvio
+author_url: https://github.com/diasfulvio
+---
 
 A relação de `N para M` que existe entre as tabelas de nomes `authors` e `books`, conforme demostrado figura abaixo:
 
-![1 para 1](https://github.com/diasfulvio/how-to-laravel/blob/gh-pages/images/N-M.png)
+![1 para 1]({{ site.baseurl }}/images/eloquent-n-n.png)
 
 Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
 
-__Authors__
+## Authors
 
-```PHP
+```php
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -38,9 +42,9 @@ class Authors extends Model
 }
 ```
 
-__Books__
+## Books
 
-```PHP
+```php
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
@@ -67,11 +71,13 @@ class Books extends Model
     }
 }
 ```
+___
 
-##Codificando
+## Codificando
 
-###Inserir
-```PHP
+### Inserir
+
+```php
 //Cria autor e cria o livro e anexa a esse autor pelo relacionamento;
 $a = Authors::create(['name'=>'Dumond de Andrad']);
 $a->books()->create(['title' => 'O Laravel']);
@@ -92,12 +98,12 @@ $a->books()->attach($b2->id);
 
         
 ```
-###Alterar
+### Alterar
 
 _Alterar tabela muitos para muitos não é usual, só altera mesmo as tabelas de `Authors` e `Books`_
 
 ###Excluir
-```PHP
+```php
 //excluindo o item da relação, ou seja o Author e o Livro continuarão, 
 //somente o item da tabela centra será excluido
 $a = Authors::find(2);
@@ -108,8 +114,8 @@ $a->books()->detach($b);
 $a->books()->detach($b->id);
 ```
 
-###Listar
-```PHP
+### Listar
+```php
 
 //Listar os livros do autor de id = 2
 $a = Authors::find(2);
@@ -130,7 +136,7 @@ var_dump($a->books);
 ]
 ```
 
-##Observações:
+## Observações:
 
 Eu fiz os exemplos sempre do `Authors` para `Books`, mas, a volta funciona da mesma forma, ou seja, de `Books` para `Authors`
 
