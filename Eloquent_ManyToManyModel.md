@@ -1,72 +1,43 @@
 # Eloquent
 
-## Relacionamentos Muitos para Muitos com campos adicionais na tabela `Pivot`
+## Relacionamentos Muitos para Muitos com campos adicionais na tabela `Pivot` expondo a classe Model
 
-Relacionamentos Muitos para Muitos com mais campos na tabela segue a relação [Muitos para Muitos](https://github.com/artesaos/howto/blob/master/Eloquent_ManyToMany.md) com adição de um campo na tabela Pivot de nome `status` (a quantidade de campos é ilimitado, só foi colocado um como exmplo), como segue figura logo abaixo:
+Nesse caso especifico, aonde existem além das chaves de relacionamentos, campos adicioanis existe um forma criando um classe normal que herda da base Model tendo configurações diferenciadas para trabalhar com esse tipo de tabela. Segue a mesma tabela abaixo
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-withpivot.png)
 
-Para refletir isso no Laravel adicione após o `belongsToMany` o `->withPivot(['status'])` como código abaixo:
+Para refletir isso no Laravel crie a classe `BooksAuthors` igual o código logo abaixo:
 
-__Authors__
-
-```PHP
-<?php namespace App;
-
-use Illuminate\Database\Eloquent\Model;
-
-class Authors extends Model
-{
-    //Nome da tabela.
-    protected $table      = 'authors';
-    
-    //Primary Key da Tabela.
-    protected $primaryKey = 'id';
-    
-    //Item em um Array que são utilizados para preenchimento da informação.
-    protected $fillable   = ['name'];
-    
-    //Deseja trabalhar ou não com campos created_at e updated_at do tipo timestamp nessa tabela.
-    public  $timestamps   = false;
-
-    //Relacionamento.
-    public function books()
-    {
-        //    $this->belongsToMany('relacao', 'nome da tabela pivot', 'key ref. authors em pivot', 'key ref. books em pivot')
-        return $this->belongsToMany('App\Books','booksauthors', 'authorid', 'bookid')->withPivot(['status']);
-    }
-}
-```
-
-__Books__
+__BooksAuthors__
 
 ```PHP
 <?php namespace App;
-
 use Illuminate\Database\Eloquent\Model;
 
-class Books extends Model
+class BooksAuthors extends Model
 {
-    //Nome da tabela.
-    protected $table      = 'books';
-    
-    //Primary Key da Tabela.
-    protected $primaryKey = 'id';
-    
-    //Item em um Array que são utilizados para preenchimento da informação.
-    protected $fillable   = ['title'];
-    
-    //Deseja trabalhar ou não com campos created_at e updated_at do tipo timestamp nessa tabela.
+    protected $table      = 'booksauthors';
+    protected $primaryKey = ['bookid','authorid'];
+    public $incrementing  = false;
+    protected $fillable   = array('bookid','authorid','status');
     public  $timestamps   = false;
 
-    //Relacionamento.
-    public function authors()
+    public function author()
     {
-        //    $this->belongsToMany('relacao', 'nome da tabela pivot', 'key ref. books em pivot', 'key ref. author em pivot')
-        return $this->belongsToMany('App\Authors', 'booksauthors', 'bookid', 'authorid')->withPivot(['status']);
+        return $this->hasOne('App\Authors', 'id','authorid');
+    }
+
+    public function book()
+    {
+        return $this->hasOne('App\Books', 'id','bookid');
     }
 }
 ```
+As configurações `$incrementing` que determina que o dado da `primary key` seja auto icremento setado como `false` (porque, os campos dessa tabela não são auto incremento) e o `$fillable` colocando todos os campos referente tabela, para que se possa realizar as operações de CRUD.
+
+Também foi colocado dois métodos que significam os métodos do relacionamento pela chave utilizando `hasOne` como mostrado no código acima. Isso é muito importante na hora da recuperação da informação de maneira prática.
+
+
 
 ##Codificando
 
