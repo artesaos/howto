@@ -2,7 +2,9 @@
 
 ## Relacionamentos Muitos para Muitos com campos adicionais na tabela `Pivot` expondo a classe Model
 
-Nesse caso especifico, aonde existem além das chaves de relacionamentos, campos adicioanis existe um forma criando um classe normal que herda da base Model tendo configurações diferenciadas para trabalhar com esse tipo de tabela. Segue a mesma tabela abaixo
+Nesse caso especifico, aonde existem além das chaves de relacionamentos, campos adicionais existe um forma criando um classe normal que herda da base Model tendo configurações diferenciadas para trabalhar com esse tipo de tabela. 
+
+Segue a mesma tabela abaixo
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-withpivot.png)
 
