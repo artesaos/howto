@@ -13,7 +13,7 @@ title:               Artesaos - How To
 tagline:             'Como fazer'
 description:         'Laravel Brasil'
 url:
-baseurl:             /howto
+baseurl:             /howto/
 paginate:            5
 
 # About/contact
