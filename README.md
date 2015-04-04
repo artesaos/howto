@@ -12,7 +12,7 @@
 
     [Collection](Collection.md) 
  
-- Relacionamentos 
+- Eloquent - Relacionamentos 
 
     [1 para 1](Eloquent_OneToOne.md)
     
