@@ -1,7 +1,5 @@
 # HowTo
 
-## Eloquent
-
 - Artisan
 
     [Comandos Básicos](Artisan_Commands_Basico.md)
