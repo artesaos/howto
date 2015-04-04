@@ -70,7 +70,16 @@ $booksAutors = BooksAuthors::where('bookid', 2)
 ###Excluir
 Excluindo o item da relação, ou seja o Author e o Livro continuarão, somente o item da tabela Pivot será excluido:
 ```PHP
+BooksAuthors::where('bookid', 2)
+    ->where('authorid', 2)
+    ->delete();
 
+//ou
+
+BooksAuthors::where(function($query){
+        $query->where('bookid',2);
+        $query->where('authorid',2);
+})->delete();
 ```
 
 ###Listar
