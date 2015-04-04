@@ -17,4 +17,4 @@
     
     - [N para M com campos adicionais](Eloquent_ManyToManyWithPivot.md)
     
-    - [N para M com campos adicionais](Eloquent_ManyToManyModel.md)
+    - [N para M com campos adicionais com Model](Eloquent_ManyToManyModel.md)
