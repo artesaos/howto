@@ -3,7 +3,7 @@ Nesta versão, <code>~5.0</code>, o laravel veio com um recurso nativo para vali
 
 # Form Request
 
-O primeiro passo é termos um controller pra nosso recuso, então vamos supor que trabalhemos com o formulário contato:
+O primeiro passo é termos um controller pra nosso recurso, então vamos supor que trabalhemos com o formulário contato:
 
 ```shell
 php artisan make:controller ContatoController --plain
