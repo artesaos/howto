@@ -1,7 +1,6 @@
 # Eloquent
 
-## Relacionamentos Muitos para Muitos com campos adicionais na tabela `Pivot` expondo a classe Model
-
+## Relacionamentos Muitos para Muitos com campos adicionais na tabela Pivot expondo a classe Model
 
 Nesse caso especifico, aonde existem além das chaves de relacionamentos, campos adicionais existe um forma criando um classe normal que herda da base Model tendo configurações diferenciadas para trabalhar com esse tipo de tabela. 
 
@@ -39,8 +38,6 @@ class BooksAuthors extends Model
 As configurações `$incrementing` que determina que o dado da `primary key` seja auto icremento setado como `false` (porque, os campos dessa tabela não são auto incremento) e o `$fillable` colocando todos os campos referente tabela, para que se possa realizar as operações de CRUD.
 
 Também foi colocado dois métodos que significam os métodos do relacionamento pela chave utilizando `hasOne` como mostrado no código acima. Isso é muito importante na hora da recuperação da informação de maneira prática.
-
-
 
 ##Codificando
 
@@ -107,8 +104,7 @@ BooksAuthors::with(['book','author'])
     }
 ]
 ```
-
-Perceba que nessa listagem todos os campos da tabela Pivot são visiveis para que possa ser recuperado.
+Nesse caso com método `with` você consegue recuperar os dados da relação, sendo assim fácil a recuperação das informações da relação.
 
 ##Referências: 
 
