@@ -13,7 +13,7 @@ title:               Artesaos - How To
 tagline:             'Como fazer'
 description:         'Laravel Brasil'
 url:                 http://artesaos.github.io/howto
-baseurl:             /howto/
+baseurl:             /howto
 paginate:            5
 
 # About/contact
@@ -24,3 +24,7 @@ author:
 
 # Custom vars
 version:             1.0.0
+
+disqus: artesaos-howto
+
+google_analytics:
