@@ -12,15 +12,15 @@ relative_permalinks: true
 title:               Artesaos - How To
 tagline:             'Como fazer'
 description:         'Laravel Brasil'
-url:
+url:                 http://artesaos.github.io/howto
 baseurl:             /howto/
 paginate:            5
 
 # About/contact
 author:
   name:              Artesaos (Laravel Brasil)
-  url:               https://twitter.com/mdo
-  email:             markdotto@gmail.com
+  url:               http://github.com/artesaos
+  email:             ''
 
 # Custom vars
 version:             1.0.0
