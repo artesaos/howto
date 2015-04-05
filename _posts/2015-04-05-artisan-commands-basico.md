@@ -104,7 +104,7 @@ Tudo que nosso comando precisa no arquivo  `app/Console/Commands/HelloWorld.php`
 
 Os outros métodos, `getArguments` e `getOptions` são para configurar quais argumentos e opções nossa aplicação pode receber pela linha de comando. A diferença de um pra outro é que no `getArguments` o argumento tem posição fixa, ou seja, se tivessemos outros argumentos, eles deveriam ser inseridos na mesma ordem em cada chamada ao comando. Já o `getOption` não, nele podemos definir as opções e elas podem vir em qualquer posição, em pares `--chave=valor`.
 
-No caso do código que vem gerado pelo <b>Artisan</b>, o argumento é `example` e também tem a opção `--example`, então teriamos as seguintes possibilidades de chamada ao nosso comando:
+No caso do código que vem gerado pelo *Artisan*, o argumento é `example` e também tem a opção `--example`, então teriamos as seguintes possibilidades de chamada ao nosso comando:
 
 ```shell
 php artisan hello John
