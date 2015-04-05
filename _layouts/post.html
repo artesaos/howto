@@ -5,7 +5,13 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   {% if page.author %}
-  por <span class="post-author">{{ page.author }}</span> em
+  <span class="post-author">
+    {% if page.author_url %}
+    por <a href="{{ page.author_url }}">{{ page.author }}</a>
+    {% else %}
+    por {{ page.author }}
+    {% endif %}
+  </span>
   {% endif %}
   <span class="post-date">{{ page.date | date_to_string }}</span>
   {{ content }}

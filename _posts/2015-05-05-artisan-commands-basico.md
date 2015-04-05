@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Laravel 5 - Comandos Artisan - Básico
-author: Vluzrmos - http://blog.vluzrmos.com.br
+author: Vluzrmos
+author_url: http://blog.vluzrmos.com.br
 ---
 
 Nesse artigo, vou tratar do básico para criação de comandos que serão utilizados via terminal, <code>php artisan make:console</code>, vamos criar nosso comando HelloWorld, bem simples.
