@@ -5,7 +5,7 @@ title: Eloquent ManyToMany - Relacionamentos Muitos para Muitos
 
 A relação de `N para M` que existe entre as tabelas de nomes `authors` e `books`, conforme demostrado figura abaixo:
 
-![1 para 1]({{ site.baseurl }}/images/eloquent-n-n.png)
+![ManyToMany](http://i.imgur.com/WZmMPFT.png)
 
 Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
 
