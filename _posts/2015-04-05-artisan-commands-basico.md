@@ -6,13 +6,15 @@ title: Laravel 5 - Comandos Artisan - Básico
 Nesse artigo, vou tratar do básico para criação de comandos que serão utilizados via terminal, `php artisan make:console`, vamos criar nosso comando HelloWorld, bem simples.
 
 ## Criando o Comando
-O <b>Artisan</b> tem geradores pras tarefas mais rotineiras, criar migrations, models, controllers ... e comandos, então vamos criar nosso `HelloWorld`
+
+O *Artisan* tem geradores pras tarefas mais rotineiras, criar migrations, models, controllers ... e comandos, então vamos criar nosso `HelloWorld`
 
 ```shell
 php artisan make:console HelloWorld --command="hello"
 ```
 
 Deve criar o arquivo `app/Console/Commands/HelloWorld.php`:
+
 ```php
 <?php namespace App\Console\Commands;
 
