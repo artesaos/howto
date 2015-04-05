@@ -5,7 +5,7 @@ Nesta versão, <code>~5.0</code>, o laravel veio com um recurso nativo para vali
 
 O primeiro passo é termos um controller pra nosso recurso, então vamos supor que trabalhemos com o formulário contato:
 
-```shell
+```
 php artisan make:controller ContatoController --plain
 ```
 Deve criar um controller para nosso formulário de contato, vamos adicionar os seguintes métodos:
@@ -41,7 +41,7 @@ class ContatoController extends Controller {
 
 ```
 
-Feito isso, vamos criar também a view que conterá o formulário html do contato, arquivo `resources/views/contato/index.blade.php`:
+Feito isso, vamos criar também a view que conterá o formulário html do contato, arquivo <code>resources/views/contato/index.blade.php</code>:
 ```html
 @extends('app')
 
@@ -93,10 +93,10 @@ Route::controller("contato", "ContatoController");
 ```
 
 Agora, se quisermos sabe quais foram as rotas criadas até o momento:
-```shell
+```
 php artisan route:list
 ```
-Ele deve mostrar que tem uma rota GET|HEAD `contato` e POST`contato` (que usaremos aqui), além das outras rotas já definidas. Se você notou, no nosso formulário eu já defini qual a rota que ele deve enviar os dados, no caso, POST `contato`.
+Ele deve mostrar que tem uma rota GET|HEAD <code>contato</code> e POST <code>contato</code> (que usaremos aqui), além das outras rotas já definidas. Se você notou, no nosso formulário eu já defini qual a rota que ele deve enviar os dados, no caso, POST <code>contato</code>.
 
 Nosso formulário inicial será esse aqui:
 
@@ -110,11 +110,11 @@ E se verificou bem, esse formuário não tem nenhuma validação, nada impede qu
 
 # Criando o Form Request
 
-```shell
+```
 php artisan make:request ContatoRequest
 ```
 
-Por padrão, vai criar um FormRequest em `app/Http/Requests/ContatoRequest.php` que bloqueia qualquer tentativa de envio, com o método authorize, se tivessemos alguma regra de autorizização (ex.: o usuário ser admin, ou ser de um grupo de usuário em específio para poder enviar esse tipo de requisição, aí seria um bom lugar para fazer essa regra) retornar true significa que o usuário pode fazer esse tipo de Request. Então, vamos modificá-lo com as seguintes alterações:
+Por padrão, vai criar um FormRequest em <code>app/Http/Requests/ContatoRequest.php</code> que bloqueia qualquer tentativa de envio, com o método authorize, se tivessemos alguma regra de autorizização (ex.: o usuário ser admin, ou ser de um grupo de usuário em específio para poder enviar esse tipo de requisição, aí seria um bom lugar para fazer essa regra) retornar true significa que o usuário pode fazer esse tipo de Request. Então, vamos modificá-lo com as seguintes alterações:
 
 ```php
 <?php namespace App\Http\Requests;
@@ -169,7 +169,7 @@ Feito isso, precisamos alterar o Request que utilizamos em nosso controller (Con
 
 ```
 
-Feito isso, qualquer tentativa de enviar os dados de forma errada para o laravel, ele vai redirecionar de volta para o formulário com os erros salvos na sessão, então vamos editar um pouco nossa view contato.index pra mostrar essas mensagens de erro:
+Feito isso, qualquer tentativa de enviar os dados de forma errada para o laravel, ele vai redirecionar de volta para o formulário com os erros salvos na sessão, então vamos editar um pouco nossa view <code>contato.index</code> pra mostrar essas mensagens de erro:
 
 ```html
 @unless($errors->isEmpty())
@@ -180,7 +180,7 @@ Feito isso, qualquer tentativa de enviar os dados de forma errada para o laravel
     </ul>
 @endunless
 ``` 
-Basicamente, o que essas linhas fazem é percorrer nossa bolsa de mensagens de erros (MessageBag) e mostrar o primeiro erro ($error[0]) de cada campo.
+Basicamente, o que essas linhas fazem é percorrer nossa bolsa de mensagens de erros (<code>MessageBag</code>) e mostrar o primeiro erro (<code>$error[0]</code>) de cada campo.
 
 Agora, se tentarmos inserir qualquer informação que não seja válida, o nosso ContatoRequest automaticamente vai redirecionar o usuário de volta para esse formulário e essas mensagens serão exibidas:
 
@@ -233,7 +233,4 @@ Esse foi o tutorial base para aprendizado das Form Requests, voce pode ler mais 
 E também pode usar pacotes para facilitar a construção dos formuálários e tradução das mensagens de erro:
 
 * i18n dos arquivos lang [caouecs/laravel-lang](https://github.com/caouecs/Laravel-lang) 
-* Html e Form facades [Illuminate/html](https://github.com/illuminate/html) 
-
-
-
+* Html e Form facades [Illuminate/html](https://github.com/illuminate/html)
