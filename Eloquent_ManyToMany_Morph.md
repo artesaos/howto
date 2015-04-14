@@ -158,6 +158,7 @@ return $comment;
     ]
 }
 
+____
 
 $notice  = Notice::with('tags')->find(1);
 return $notice;
@@ -177,6 +178,8 @@ return $notice;
         }
     ]
 }
+
+____
 
 $tag   = Tag::with(['notices','comments'])->find(1);
 return $tag;
