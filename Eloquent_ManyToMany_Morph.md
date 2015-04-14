@@ -119,6 +119,8 @@ Depois desses comandos que são igualzinhos do Relacionamento N-M os dados da ta
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-MorphInsert.png)
 
+Ou seja, existe um campo para diferenciação (`taggable_type`) simbolizando que aquele registro pertence a uma determinada tabela.
+
 ###Alterar
 
 _Alterar tabela muitos para muitos não é usual, só altera mesmo as tabelas de `Authors` e `Books`_
