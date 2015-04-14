@@ -141,11 +141,31 @@ Para excluir é bem parecido com o inserir só muda o método de `attach` para `
 $comment = Comment::with('tags')->find(1);
 return $comment;
 
-//Saida
+//Saída
 {
     "id": 1,
     "title": "title 1",
     "text": "text1",
+    "tags": [
+        {
+            "id": 1,
+            "description": "Programação",
+            "pivot": {
+                "taggableid": 1,
+                "tagid": 1
+            }
+        }
+    ]
+}
+
+
+$notice  = Notice::with('tags')->find(1);
+return $notice;
+
+//Saída
+{
+    "id": 1,
+    "title": "titulo 1",
     "tags": [
         {
             "id": 1,
