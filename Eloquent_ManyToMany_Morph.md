@@ -2,7 +2,7 @@
 
 ## Relacionamentos Muitos para Muitos com Tabela de Estrutura de Relacionamento
 
-Esse tipo de estruturação é indicado quando várias tabelas são associadas a um delas de modo especial. Na imagem abaixo a tabela `tags` se associa com as tabelas `comments` e `noticies` de modo a `tag` de `id = 1` pode estar em `comments` e `noticies` ao mesmo tempo. Para isso é criado uma tabela que simboliza a relação mais o tipo da relação.
+Esse tipo de estruturação é indicado quando várias tabelas são associadas a um delas de modo especial. Na imagem abaixo a tabela `tags` se associa com as tabelas `comments` e `notices` de modo a `tag` de `id = 1` pode estar em `comments` e `noticies` ao mesmo tempo. Para isso é criado uma tabela que simboliza a relação entre todas elas fazendo um centralizador das relações que podem possuir também `tags` de `comments` como `tags` de `notices`.
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-Morph.png)
 
