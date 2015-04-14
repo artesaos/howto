@@ -123,12 +123,18 @@ Ou seja, existe um campo para diferenciação (`taggable_type`) simbolizando que
 
 ###Alterar
 
-_Alterar tabela muitos para muitos não é usual, só altera mesmo as tabelas de `Authors` e `Books`_
+_Alterar tabela muitos para muitos não é usual, só altera mesmo as tabelas de `comments`,`tags`, `notices`_
 
 ###Excluir
 ```PHP
+$comment = Comment::find(1);
+$notice  = Notice::find(1);
+$tag     = Tag::find(1);
 
+$comment->tags()->detach($tag);
+$notice->tags()->detach($tag);
 ```
+Para excluir é bem parecido com o inserir só muda o método de `attach` para `detach`
 
 ###Listar
 ```PHP
