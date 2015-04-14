@@ -102,6 +102,7 @@ class Tag extends Model
     }
 }
 ```
+Nessa `class Tag` tem o relacionamento de volta, ou seja, conseguimos pegar pela `tag` as `notices` e/ou `comments` que estão relacionados na tabela `taggables`.
 
 ##Codificando
 
