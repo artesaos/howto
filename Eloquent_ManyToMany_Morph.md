@@ -2,8 +2,6 @@
 
 ## Relacionamentos Muitos para Muitos com Tabela
 
-A relação de `N para M` que existe entre as tabelas de nomes `authors` e `books`, conforme demostrado figura abaixo:
-
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-withpivot.png)
 
