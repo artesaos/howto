@@ -50,6 +50,33 @@ class Comment extends Model
 }
 ```
 
+__Comments__
+
+```PHP
+<?php namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class Tag extends Model
+{
+    protected $table      = 'tags';
+    protected $primaryKey = 'id';
+    protected $fillable   = array('description');
+    public  $timestamps   = false;
+
+
+    public function comments()
+    {
+        return $this->morphedByMany("App\Comment", 'taggable', 'taggables','tagid','taggableid');
+    }
+
+    public function notices()
+    {
+        return $this->morphedByMany("App\Notice", 'taggable', 'taggables','tagid','taggableid');
+    }
+}
+```
+
 ##Codificando
 
 ###Inserir
