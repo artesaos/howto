@@ -110,7 +110,7 @@ Nessa `class Tag` tem o relacionamento de volta, ou seja, conseguimos pegar pela
 ```PHP
 $comment = Comment::find(1);
 $notice  = Notice::find(1);
-tag      = Tag::find(1);
+$tag     = Tag::find(1);
 
 $comment->tags()->attach($tag);
 $notice->tags()->attach($tag);
