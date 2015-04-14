@@ -138,7 +138,25 @@ Para excluir é bem parecido com o inserir só muda o método de `attach` para `
 
 ###Listar
 ```PHP
+$comment = Comment::with('tags')->find(1);
+return $comment;
 
+//Saida
+{
+    "id": 1,
+    "title": "title 1",
+    "text": "text1",
+    "tags": [
+        {
+            "id": 1,
+            "description": "Programação",
+            "pivot": {
+                "taggableid": 1,
+                "tagid": 1
+            }
+        }
+    ]
+}
 ```
 
 
