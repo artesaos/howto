@@ -23,6 +23,7 @@
     
     - [N para M com campos adicionais](Eloquent_ManyToManyWithPivot.md)
     
+    
     - [N para M com campos adicionais com Model](Eloquent_ManyToManyModel.md)
     
     - [N para M com Tabela de Estruturas de Relacionamentos)(Eloquent_ManyToMany_Morph.md)
