@@ -17,11 +17,19 @@ use Illuminate\Database\Eloquent\Model;
 
 class Notice extends Model
 {
+    //Nome da tabela.
     protected $table      = 'notices';
+    
+    //Primary Key da Tabela.
     protected $primaryKey = 'id';
+    
+    //Item em um Array que são utilizados para preenchimento da informação.
     protected $fillable   = array('title');
+    
+    //Deseja trabalhar ou não com campos created_at e updated_at do tipo timestamp nessa tabela.
     public  $timestamps   = false;
 
+    //Relacionamento.
     public function tags()
     {
         return $this->morphToMany('App\Tag', 'taggable', 'taggables', 'taggableid', 'tagid');
@@ -50,7 +58,7 @@ class Comment extends Model
 }
 ```
 
-__Comments__
+__Tags__
 
 ```PHP
 <?php namespace App;
