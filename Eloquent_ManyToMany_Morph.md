@@ -177,6 +177,37 @@ return $notice;
         }
     ]
 }
+
+$tag   = Tag::with(['notices','comments'])->find(1);
+return $tag;
+
+//Saída
+{
+    "id": 1,
+    "description": "Programação",
+    "notices": [
+        {
+            "id": 1,
+            "title": "titulo 1",
+            "pivot": {
+                "tagid": 1,
+                "taggableid": 1
+            }
+        }
+    ],
+    "comments": [
+        {
+            "id": 1,
+            "title": "title 1",
+            "text": "text1",
+            "pivot": {
+                "tagid": 1,
+                "taggableid": 1
+            }
+        }
+    ]
+}
+
 ```
 
 
