@@ -32,6 +32,7 @@ class Notice extends Model
     //Relacionamento.
     public function tags()
     {
+               $this->morphToMany('relação', 'name', 'nome da tabela', 'foreign key', 'local key')
         return $this->morphToMany('App\Tag', 'taggable', 'taggables', 'taggableid', 'tagid');
     }
 }
@@ -46,13 +47,21 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+    //Nome da tabela.
     protected $table      = 'comments';
+    
+    //Primary Key da Tabela.
     protected $primaryKey = 'id';
+    
+    //Item em um Array que são utilizados para preenchimento da informação.
     protected $fillable   = array('title', 'text');
+    
+    //Deseja trabalhar ou não com campos created_at e updated_at do tipo timestamp nessa tabela.
     public  $timestamps   = false;
 
     public function tags()
     {
+               $this->morphToMany('relação', 'name', 'nome da tabela', 'foreign key', 'local key')
         return $this->morphToMany('App\Tag', 'taggable', 'taggables', 'taggableid', 'tagid');
     }
 }
