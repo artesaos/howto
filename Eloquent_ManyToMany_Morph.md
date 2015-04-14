@@ -32,7 +32,7 @@ class Notice extends Model
     //Relacionamento.
     public function tags()
     {
-               $this->morphToMany('relação', 'name', 'nome da tabela', 'foreign key', 'local key')
+             //$this->morphToMany('relação', 'name', 'nome da tabela', 'foreign key', 'local key')
         return $this->morphToMany('App\Tag', 'taggable', 'taggables', 'taggableid', 'tagid');
     }
 }
@@ -61,7 +61,7 @@ class Comment extends Model
 
     public function tags()
     {
-               $this->morphToMany('relação', 'name', 'nome da tabela', 'foreign key', 'local key')
+             //$this->morphToMany('relação', 'name', 'nome da tabela', 'foreign key', 'local key')
         return $this->morphToMany('App\Tag', 'taggable', 'taggables', 'taggableid', 'tagid');
     }
 }
