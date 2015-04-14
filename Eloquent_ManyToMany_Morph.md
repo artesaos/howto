@@ -4,7 +4,7 @@
 
 Esse tipo de estruturação é indicado quando várias tabelas são associadas a um delas de modo especial. Na imagem abaixo a tabela `tags` se associa com as tabelas `comments` e `notices` de modo a `tag` de `id = 1` pode estar em `comments` e `noticies` ao mesmo tempo. Para isso é criado uma tabela que simboliza a relação entre todas elas fazendo um centralizador das relações que podem possuir também `tags` de `comments` como `tags` de `notices` e assim por diante.
 
-![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-Morph.png)
+![1 para N](https://github.com/diasfulvio/howto/blob/master/images/N-M-Morph.png)
 
 Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
 
@@ -108,8 +108,17 @@ Nessa `class Tag` tem o relacionamento de volta, ou seja, conseguimos pegar pela
 
 ###Inserir
 ```PHP
+$comment = Comment::find(1);
+$notice  = Notice::find(1);
+tag      = Tag::find(1);
 
+$comment->tags()->attach($tag);
+$notice->tags()->attach($tag);
 ```
+Depois desses comandos que são igualzinhos do Relacionamento N-M os dados da tabela ficariam assim:
+
+![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-MorphInsert.png)
+
 ###Alterar
 
 _Alterar tabela muitos para muitos não é usual, só altera mesmo as tabelas de `Authors` e `Books`_
