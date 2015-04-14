@@ -2,68 +2,50 @@
 
 ## Relacionamentos Muitos para Muitos com Tabela de Estrutura de Relacionamento
 
-Esse tipo de estruturação é indicado quando várias tabelas são associadas a um delas de modo especial. Na imagem abaixo a tabela `tag` se associa várias vezes com as tabelas `comments` e `noticies`.
+Esse tipo de estruturação é indicado quando várias tabelas são associadas a um delas de modo especial. Na imagem abaixo a tabela `tags` se associa com as tabelas `comments` e `noticies` de modo a `tag` de `id = 1` pode estar em `comments` e `noticies` ao mesmo tempo. Para isso é criado uma tabela que simboliza a relação mais o tipo da relação.
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-Morph.png)
 
 Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
 
-__Authors__
+__Notices__
 
 ```PHP
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Authors extends Model
+class Notice extends Model
 {
-    //Nome da tabela.
-    protected $table      = 'authors';
-    
-    //Primary Key da Tabela.
+    protected $table      = 'notices';
     protected $primaryKey = 'id';
-    
-    //Item em um Array que são utilizados para preenchimento da informação.
-    protected $fillable   = ['name'];
-    
-    //Deseja trabalhar ou não com campos created_at e updated_at do tipo timestamp nessa tabela.
+    protected $fillable   = array('title');
     public  $timestamps   = false;
 
-    //Relacionamento.
-    public function books()
+    public function tags()
     {
-        //    $this->belongsToMany('relacao', 'nome da tabela pivot', 'key ref. authors em pivot', 'key ref. books em pivot')
-        return $this->belongsToMany('App\Books','booksauthors', 'authorid', 'bookid');
+        return $this->morphToMany('App\Tag', 'taggable', 'taggables', 'taggableid', 'tagid');
     }
 }
 ```
 
-__Books__
+__Comments__
 
 ```PHP
 <?php namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Books extends Model
+class Comment extends Model
 {
-    //Nome da tabela.
-    protected $table      = 'books';
-    
-    //Primary Key da Tabela.
+    protected $table      = 'comments';
     protected $primaryKey = 'id';
-    
-    //Item em um Array que são utilizados para preenchimento da informação.
-    protected $fillable   = ['title'];
-    
-    //Deseja trabalhar ou não com campos created_at e updated_at do tipo timestamp nessa tabela.
+    protected $fillable   = array('title', 'text');
     public  $timestamps   = false;
 
-    //Relacionamento.
-    public function authors()
+    public function tags()
     {
-        //    $this->belongsToMany('relacao', 'nome da tabela pivot', 'key ref. books em pivot', 'key ref. author em pivot')
-        return $this->belongsToMany('App\Authors', 'booksauthors', 'bookid', 'authorid');
+        return $this->morphToMany('App\Tag', 'taggable', 'taggables', 'taggableid', 'tagid');
     }
 }
 ```
@@ -72,25 +54,7 @@ class Books extends Model
 
 ###Inserir
 ```PHP
-//Cria autor e cria o livro e anexa a esse autor pelo relacionamento;
-$a = Authors::create(['name'=>'Dumond de Andrad']);
-$a->books()->create(['title' => 'O Laravel']);
 
-ou
-//Cria autor, e criando dois livros
-$a = Authors::create(['name'=>'Dumond de Andrad']);
-$b1 = Books::create(['title'=>'O Conto']);
-$b2 = Books::create(['title'=>'O Sasi']);
-
-//anexando ao autor os dois livros
-$a->books()->attach($b1);
-$a->books()->attach($b2);
-
-ou // anexando pelo id
-$a->books()->attach($b1->id);
-$a->books()->attach($b2->id);
-
-        
 ```
 ###Alterar
 
@@ -98,41 +62,14 @@ _Alterar tabela muitos para muitos não é usual, só altera mesmo as tabelas de
 
 ###Excluir
 ```PHP
-//excluindo o item da relação, ou seja o Author e o Livro continuarão, 
-//somente o item da tabela centra será excluido
-$a = Authors::find(2);
-$b = Books::find(2);
 
-$a->books()->detach($b);
-//ou
-$a->books()->detach($b->id);
 ```
 
 ###Listar
 ```PHP
 
-//Listar os livros do autor de id = 2
-$a = Authors::find(2);
-var_dump($a->books);
-
-//saída
-[
-    {
-        "id":1,
-        "title":"O Exemplo 1",
-        "pivot":{"authorid":2,"bookid":1}
-    },
-    {   
-        "id":3,
-        "title":"O Exemplo 2",
-        "pivot":{"authorid":2,"bookid":3}
-    }
-]
 ```
 
-##Observações:
-
-Eu fiz os exemplos sempre do `Authors` para `Books`, mas, a volta funciona da mesma forma, ou seja, de `Books` para `Authors`
 
 ##Referências: 
 
