@@ -1,7 +1,8 @@
 # Eloquent
 
-## Relacionamentos Muitos para Muitos com Tabela
+## Relacionamentos Muitos para Muitos com Tabela de Estrutura de Relacionamento
 
+Esse tipo de estruturação é indicado quando várias tabelas são associadas a um delas de modo especial. Na imagem abaixo a tabela `tag` se associa várias vezes com as tabelas `comments` e `noticies`.
 
 ![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-Morph.png)
 
