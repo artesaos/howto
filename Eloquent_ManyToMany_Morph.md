@@ -3,7 +3,7 @@
 ## Relacionamentos Muitos para Muitos com Tabela
 
 
-![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-withpivot.png)
+![1 para 1](https://github.com/diasfulvio/howto/blob/master/images/N-M-Morph.png)
 
 Para refletir isso no Laravel crie as seguintes classes que herdam do Eloquent (Model).
 
