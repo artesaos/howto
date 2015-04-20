@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Eloquent ManyToMany (pivot) - Relacionamentos Muitos para Muitos com campos adicionais na tabela `Pivot`
+tags: [eloquent, database, relacionamentos]
 ---
 
 Relacionamentos Muitos para Muitos com mais campos na tabela segue a relação [Muitos para Muitos](https://github.com/artesaos/howto/blob/master/Eloquent_ManyToMany.md) com adição de um campo na tabela Pivot de nome `status` (a quantidade de campos é ilimitado, só foi colocado um como exmplo), como segue figura logo abaixo:

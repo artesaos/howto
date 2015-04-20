@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Eloquent ManyToMany - Relacionamentos Muitos para Muitos
+tags: [eloquent, database, relacionamentos]
 ---
 
 A relação de `N para M` que existe entre as tabelas de nomes `authors` e `books`, conforme demostrado figura abaixo:

@@ -1,0 +1,19 @@
+- slug: database
+  name: Database
+
+- slug: eloquent
+  name: Eloquent
+
+- slug: relacionamentos
+  name: Relacionamentos
+
+
+- slug: artisan
+  name: Artisan 
+
+
+- slug: linha-de-comando
+  name: Linha de comando
+
+- slug: validacao
+  name: Validação

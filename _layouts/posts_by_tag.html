@@ -1,0 +1,17 @@
+---
+layout: default
+---
+
+
+<h1>Artigos com a Tag: {{ page.tag }}</h1>
+<div>
+    {% if site.tags[page.tag] %}
+        {% for post in site.tags[page.tag] %}
+        <p>
+            <a href="{{site.baseurl}}{{ post.url }}/">{{ post.title }}</a>
+        </p>
+        {% endfor %}
+    {% else %}
+        <p>Não há nenhum post com essa tag.</p>
+    {% endif %}
+</div>
