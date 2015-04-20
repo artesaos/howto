@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Eloquent OneToOne - Relacionamentos 1 para 1
+tags: [eloquent, database, relacionamentos]
 ---
 
 A relação de `1 para 1` que existe entre as tabelas de nomes `peoples` e `address`, conforme demostrado figura abaixo:

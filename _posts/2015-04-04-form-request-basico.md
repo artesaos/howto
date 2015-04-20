@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Utilizando os Form Requests
+tags: [validacao]
 ---
 
 Nesta versão, <code>~5.0</code>, o laravel veio com um recurso nativo para validação de dados recebidos via http (via formulário, ajax, etc) nesse artigo vou tratar as formas mais comuns de utilizá-los.
