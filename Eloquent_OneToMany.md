@@ -57,7 +57,7 @@ class Phones extends Model
     protected $primaryKey = 'id';
     
     //Item em um Array que são utilizados para preenchimento da informação.
-    protected $fillable   = ['ddd', 'number'];
+    protected $fillable   = ['peopleid','ddd', 'number'];
     
     //Deseja trabalhar ou não com campos created_at e updated_at do tipo timestamp nessa tabela.
     public  $timestamps   = false;
