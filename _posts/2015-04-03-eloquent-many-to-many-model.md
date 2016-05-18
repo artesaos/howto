@@ -8,7 +8,7 @@ Nesse caso especifico, aonde existem além das chaves de relacionamentos, campos
 
 Segue a mesma tabela abaixo
 
-![ManyToMany](https://github.com/diasfulvio/howto/raw/master/images/N-M.png)
+![Many to Many](http://i.imgur.com/1PmYjqu.png)
 
 Para refletir isso no Laravel crie a classe `BooksAuthors` igual o código logo abaixo:
 
